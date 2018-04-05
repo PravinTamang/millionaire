@@ -9,6 +9,7 @@ name = raw_input("Hello, welcome to Who Wants to be a Millionaire! What is your 
 #call introduction function
 millionaire.intro(name)
 
+global money
 money = '100'
 answerlist = ["A","B","C","D", "Correct"]
 
@@ -19,6 +20,7 @@ while i <= 16:
 	f = (random.choice(list(open('test.txt'))))
 	lines = f.split('[')
 	question = lines[0]
+	global answers
 	answers = lines[1].strip("\n").split(',')
 
 	print 'Question:', i 
@@ -59,17 +61,7 @@ while i <= 16:
 
 	#50/50 lifeline
 	if select == "1":
-		print "Lifeline: 50/50"
-		time.sleep(1)
-		print "We will select two answers to remove"
-		time.sleep(1)
-		print "Leaving you with one correct and one incorrect answer"
-		#add money counter 
-		time.sleep(1)
-		print "The correct answer either is", answers[5], "or ", answers[6]
-	
-		lifeline1 = raw_input("for "+ money + " please select the correct answer "  + name + "\n")
-		select = lifeline1.upper()
+		millionaire.fifty(answers,money,name)
 	
 
 	#Phone a friend lifeline 
