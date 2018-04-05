@@ -32,7 +32,7 @@ def intro(name):
    time.sleep(4)
    print "\n3. Ask the Audience"
    time.sleep(2) 
-   print "Our wonderful people (bots) in the audience will vote on the correct answer and we shall show you the results\nPress 3cc to access"
+   print "Our wonderful people (bots) in the audience will vote on the correct answer and we shall show you the results\nPress 3 to access"
    time.sleep(4)
    print "\nReady to get started? Lets go!" + "\n" + "===================================================================\n"
    time.sleep(2)
@@ -54,7 +54,7 @@ def fifty(answers,money,name):
    select = lifeline1.upper()
 
 #Phone a friend
-def friend():
+def friend(answers,money,name,question):
    print "Lifeline: Phone a friend"
    time.sleep(1)
    friend = raw_input("Please enter the name of the person you want to ring " + name + ":\n")
@@ -75,7 +75,7 @@ def friend():
    select = lifeline2.upper()
 
 #Ask the Audience
-def audience():
+def audience(answers,money,name):
    print "Lifeline: Ask the audience"
    time.sleep(1)
    print "Our audience all have remotes and will vote on what they believe to be the right answer"
