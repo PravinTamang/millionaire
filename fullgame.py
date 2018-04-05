@@ -9,8 +9,13 @@ name = raw_input("Hello, welcome to Who Wants to be a Millionaire! What is your 
 #call introduction function
 millionaire.intro(name)
 
+#counters
 global money
 money = '100'
+lifeline_fifty = 0
+lifeline_friend = 0
+lifeline_ friend = 0
+
 answerlist = ["A","B","C","D", "Correct"]
 
 #open randon random line in file
@@ -19,6 +24,7 @@ i = 1
 while i <= 16:
 	f = (random.choice(list(open('test.txt'))))
 	lines = f.split('[')
+	global question
 	question = lines[0]
 	global answers
 	answers = lines[1].strip("\n").split(',')
@@ -62,29 +68,13 @@ while i <= 16:
 	#50/50 lifeline
 	if select == "1":
 		millionaire.fifty(answers,money,name)
-	
+		lifeline_fifty = 1
 
 	#Phone a friend lifeline 
 	if select == "2":
-		print "Lifeline: Phone a friend"
-		time.sleep(1)
-		friend = raw_input("Please enter the name of the person you want to ring " + name + ":\n")
-		print "...dialling " + friend + "... "
-		time.sleep(2)
-		print "Hi " + friend + " it's Chris Tarrent here, " + name + " needs your help!"
-		time.sleep(2)
-		print "Can you help " + name + " by answering this question?"
-		time.sleep(2)
-		print question
-		print 'A: ' + answers[0]
-		print 'B: ' + answers[1]
-		print 'C: ' + answers[2]
-		print 'D: ' + answers[3]
-		time.sleep(2)
-		print friend + ":" + answers[7]
-		lifeline2 = raw_input("Chris Tarrent: Please select an answer " + name + "\n")
-		select = lifeline2.upper()
-		 
+		millionaire.friend(answers,money,name,question)
+		lifeline_friend = 2
+
 	#Phone a friend lifeline 
 	if select == "3":
 		print "Lifeline: Ask the audience"
@@ -120,7 +110,7 @@ while i <= 16:
 			print 'Hard luck ' + name  + ', Game over'							
 			break
 		if i == 16:
-			print "Congratulations You are a millionaire"
+			print "Congratulations You are a millionaire!"
 			time.sleep(5)
 			break
 
