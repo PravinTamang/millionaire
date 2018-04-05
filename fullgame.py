@@ -56,10 +56,6 @@ while i <= 16:
 	select = raw_input("Select an answer " + name + ":\n")
 	select = select.upper()
 
-	##if select != "A" or "B" or "C" or "D" or "1" or "2" or "3":
-	#	select = raw_input("Please select a valid answer " + name + ":\n")
-
- 
 
 	#50/50 lifeline
 	if select == "1":
@@ -68,6 +64,7 @@ while i <= 16:
 			lifeline_fifty = 1
 		elif lifeline_fifty != 0:
 			print "You've already used this lifeline!"
+			i = i - 1
 
 	#Phone a friend lifeline 
 	if select == "2":
@@ -77,7 +74,7 @@ while i <= 16:
 		elif lifeline_friend != 0:
 			print "You've already used this lifeline!"
 
-	#Phone a friend lifeline 
+	#Ask the audience lifeline 
 	if select == "3":
 		if lifeline_audience == 0:
 			millionaire.audience(answers,money,name,question)
