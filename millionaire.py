@@ -75,7 +75,7 @@ def friend(answers,money,name,question):
    select = lifeline2.upper()
 
 #Ask the Audience
-def audience(answers,money,name):
+def audience(answers,money,name,question):
    print "Lifeline: Ask the audience"
    time.sleep(1)
    print "Our audience all have remotes and will vote on what they believe to be the right answer"
