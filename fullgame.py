@@ -1,36 +1,13 @@
 import random
 import time
+import millionaire
 
-
+#take name
+global name
 name = raw_input("Hello, welcome to Who Wants to be a Millionaire! What is your name?" + "\n")
-#time.sleep(0.5)
 
-print "Ok " + name + " this is how the game works:" + "\n"
-time.sleep(2)
-print "You are asked a multiple choice question, with options A, B, C and D."
-time.sleep(2)
-print "If you get the correct answer, you earn money and move onto the next question."
-time.sleep(4)
-print "If you guess incorrectly then you lose the money you have earned,"
-time.sleep(2)
-print "although there are check-points along the way that allow you to keep a certain amount of money should you get a question wrong further on." 
-time.sleep(4)
-print "The questions increase in difficulty as you progress but you can make use of the 3 'lifelines' we will give you:" 
-time.sleep(4)
-print "\n1. 50/50" 
-time.sleep(2) 
-print "This allows you to cut the possible answers from 4, down to 2.\nPress 1 to access"
-time.sleep(4)
-print "\n2. Phone a Friend" 
-time.sleep(2)
-print "Place a call to a predetermined friend that will hopefully help you with an answer.\nPress 2 to access"
-time.sleep(4)
-print "\n3. Ask the Audience"
-time.sleep(2) 
-print "Our wonderful people (bots) in the audience will vote on the correct answer and we shall show you the results\nPress 3cc to access"
-time.sleep(4)
-print "\nReady to get started? Lets go!" + "\n" + "===================================================================\n"
-time.sleep(2)
+#call introduction function
+millionaire.intro(name)
 
 money = '100'
 answerlist = ["A","B","C","D", "Correct"]
@@ -122,16 +99,16 @@ while i <= 16:
 		time.sleep(1)
 		print "Our audience all have remotes and will vote on what they believe to be the right answer"
 		time.sleep(2)
-		print "Please allow a couple of seconds for the audience to select thier answers " + name
+		print "Please allow a couple of seconds for the audience to select their answers " + name
 		time.sleep(4)
 		aud = (random.choice(list(open('asktheaudience.txt'))))
 		aud = aud.split(',')
 		print "The votes are in"
 		time.sleep(1)
-		print "A:",answers[0] + aud[0]
-		print "B:",answers[1] + aud[1]
-		print "C:",answers[2] + aud[2]
-		print "D:",answers[3]+ aud[3]
+		print "A:",answers[0], " ", aud[0]
+		print "B:",answers[1], " ", aud[1]
+		print "C:",answers[2], " ", aud[2]
+		print "D:",answers[3], " ", aud[3]
 		time.sleep(1)
 		print "\nHopefully you found that helpful"
 		time.sleep(1)
