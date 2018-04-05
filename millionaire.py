@@ -9,7 +9,6 @@ import random
 import time
 
 def intro(name):
-   print name
    #name = raw_input("Hello, welcome to Who Wants to be a Millionaire! What is your name?" + "\n")
    print "Ok " + name + " this is how the game works:" + "\n"
    time.sleep(2)
@@ -41,7 +40,7 @@ def intro(name):
 #Lifelines:
 
 #50/50
-def fifty():
+def fifty(answers,money,name):
    print "Lifeline: 50/50"
    time.sleep(1)
    print "We will select two answers to remove"
