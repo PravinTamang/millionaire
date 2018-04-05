@@ -14,7 +14,7 @@ global money
 money = '100'
 lifeline_fifty = 0
 lifeline_friend = 0
-lifeline_ friend = 0
+lifeline_audience = 0
 
 answerlist = ["A","B","C","D", "Correct"]
 
@@ -32,15 +32,11 @@ while i <= 16:
 	print 'Question:', i 
 
 	print question
-	#time.sleep(3)
 	print 'A: ' + answers[0]
-	#time.sleep(1)
 	print 'B: ' + answers[1]
-	#time.sleep(1)
 	print 'C: ' + answers[2]
-	#time.sleep(1)
 	print 'D: ' + answers[3]
-	#time.sleep(1)
+
 
 	#assigning values to answers
 	a = random.choice(answers)
@@ -67,40 +63,27 @@ while i <= 16:
 
 	#50/50 lifeline
 	if select == "1":
-		millionaire.fifty(answers,money,name)
-		lifeline_fifty = 1
+		if lifeline_fifty == 0:
+			millionaire.fifty(answers,money,name)
+			lifeline_fifty = 1
+		elif lifeline_fifty != 0:
+			print "You've already used this lifeline!"
 
 	#Phone a friend lifeline 
 	if select == "2":
-		millionaire.friend(answers,money,name,question)
-		lifeline_friend = 2
+		if lifeline_friend == 0:
+			millionaire.friend(answers,money,name,question)
+			lifeline_friend = 1
+		elif lifeline_friend != 0:
+			print "You've already used this lifeline!"
 
 	#Phone a friend lifeline 
 	if select == "3":
-		print "Lifeline: Ask the audience"
-		time.sleep(1)
-		print "Our audience all have remotes and will vote on what they believe to be the right answer"
-		time.sleep(2)
-		print "Please allow a couple of seconds for the audience to select their answers " + name
-		time.sleep(4)
-		aud = (random.choice(list(open('asktheaudience.txt'))))
-		aud = aud.split(',')
-		print "The votes are in"
-		time.sleep(1)
-		print "A:",answers[0], " ", aud[0]
-		print "B:",answers[1], " ", aud[1]
-		print "C:",answers[2], " ", aud[2]
-		print "D:",answers[3], " ", aud[3]
-		time.sleep(1)
-		print "\nHopefully you found that helpful"
-		time.sleep(1)
-		lifeline3 = raw_input("Chris Tarrent: Please select an answer " + name + "\n")
-		select = lifeline3.upper()
-
-
-
-
-
+		if lifeline_audience == 0:
+			millionaire.audience(answers,money,name,question)
+			lifeline_audience = 1
+		elif lifeline_audience != 0:
+			print "You've already used this lifeline!"
 		 
 	
 	if select in answerdict:
