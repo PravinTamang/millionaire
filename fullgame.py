@@ -18,7 +18,7 @@ lifeline_audience = 0
 
 answerlist = ["A","B","C","D", "Correct"]
 
-#open randon random line in file
+#open random line in file
 j = 0
 i = 1
 while i <= 16:
@@ -43,7 +43,7 @@ while i <= 16:
 	b = random.choice(answers)
 	c = random.choice(answers)
 	d = random.choice(answers)
-	# print a , b , c , d 
+	 
 
 	answerdict = {
 	'A' : answers[0],
@@ -52,7 +52,7 @@ while i <= 16:
 	'D' : answers[3],
 
 	}
-	#print answers[4]
+	
 	select = raw_input("Select an answer " + name + ":\n")
 	select = select.upper()
 
