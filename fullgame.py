@@ -8,7 +8,7 @@ global name
 name = raw_input("Hello, welcome to Who Wants to be a Millionaire! What is your name?" + "\n")
 
 #call introduction function
-#millionaire.intro(name)
+millionaire.intro(name)
 
 #counters
 lifeline_fifty = 0
@@ -18,7 +18,7 @@ j = 0
 global i
 i = 1
 global money
-money = '100'
+money = ['100','200','300','500','1000','2000','4000','8000','16000','32000','64000','125000','250000','500000','1000000']
 
 answerlist = ["A","B","C","D", "Correct"]
 
@@ -32,7 +32,7 @@ while i <= 16:
 	global answers
 	answers = lines[1].strip("\n").split(',')
 
-	print 'Question:', i, money
+	print 'Question:', i, "for", money[i-1]
 
 	print question
 	print 'A: ' + answers[0]
@@ -89,15 +89,16 @@ while i <= 16:
 		 
 	
 	if select in answerdict:
-		if answerdict[select] == answers[4] and i < 15:
+		if answerdict[select] == answers[4] and i <= 14:
 			print 'Correct\nYou are one step closer to being a Millionaire' +"\n" 
-		else:
-			print 'Hard luck ' + name  + ', Game over'							
-			break
-		if i == 15:
+		elif i == 15:
 			print "Congratulations. You are a millionaire!"
 			time.sleep(5)
 			break
+		else:
+			print 'Hard luck ' + name  + ', Game over'							
+			break
+		
 	if len(select) > 2:
 		print "DQ"
 		break
