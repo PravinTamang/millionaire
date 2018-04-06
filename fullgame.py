@@ -73,6 +73,7 @@ while i <= 16:
 			lifeline_friend = 1
 		elif lifeline_friend != 0:
 			print "You've already used this lifeline!"
+			i = i - 1
 
 	#Ask the audience lifeline 
 	if select == "3":
@@ -81,6 +82,7 @@ while i <= 16:
 			lifeline_audience = 1
 		elif lifeline_audience != 0:
 			print "You've already used this lifeline!"
+			i = i - 1
 		 
 	
 	if select in answerdict:
