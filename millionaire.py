@@ -9,7 +9,6 @@ import random
 import time
 
 def intro(name):
-   #name = raw_input("Hello, welcome to Who Wants to be a Millionaire! What is your name?" + "\n")
    print "Ok " + name + " this is how the game works:" + "\n"
    time.sleep(2)
    print "You are asked a multiple choice question, with options A, B, C and D."
@@ -40,7 +39,7 @@ def intro(name):
 #Lifelines:
 
 #50/50
-def fifty(answers,money,name):
+def fifty(answers,money,name,question, i):
    print "Lifeline: 50/50"
    time.sleep(1)
    print "We will select two answers to remove"
@@ -52,9 +51,16 @@ def fifty(answers,money,name):
    
    lifeline1 = raw_input("for "+ money + " please select the correct answer "  + name + "\n")
    select = lifeline1.upper()
+#if trying to use 2 lifelines on one question   
+   if select == "2":
+      print "You can only use one lifeline per question, sorry."
+      i = i - 1
+   if select == "3":
+      print "You can only use one lifeline per question, sorry."
+      i = i - 1
 
 #Phone a friend
-def friend(answers,money,name,question):
+def friend(answers,money,name,question,i):
    print "Lifeline: Phone a friend"
    time.sleep(1)
    friend = raw_input("Please enter the name of the person you want to ring " + name + ":\n")
@@ -73,9 +79,16 @@ def friend(answers,money,name,question):
    print friend + ":" + answers[7]
    lifeline2 = raw_input("Chris Tarrent: Please select an answer " + name + "\n")
    select = lifeline2.upper()
+#if trying to use 2 lifelines on one question
+   if select == "1":
+      print "You can only use one lifeline per question, sorry."
+      i = i - 1
+   if select == "3":
+      print "You can only use one lifeline per question, sorry."
+      i = i - 1
 
 #Ask the Audience
-def audience(answers,money,name,question):
+def audience(answers,money,name,question,i):
    print "Lifeline: Ask the audience"
    time.sleep(1)
    print "Our audience all have remotes and will vote on what they believe to be the right answer"
@@ -95,3 +108,10 @@ def audience(answers,money,name,question):
    time.sleep(1)
    lifeline3 = raw_input("Chris Tarrent: Please select an answer " + name + "\n")
    select = lifeline3.upper()
+#if trying to use 2 lifelines on one question
+   if select == "1":
+      print "You can only use one lifeline per question, sorry."
+      i = i - 1
+   if select == "2":
+      print "You can only use one lifeline per question, sorry."
+      i = i - 1

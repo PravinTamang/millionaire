@@ -20,6 +20,7 @@ answerlist = ["A","B","C","D", "Correct"]
 
 #open random line in file
 j = 0
+global i
 i = 1
 while i <= 16:
 	f = (random.choice(list(open('test.txt'))))
@@ -60,7 +61,7 @@ while i <= 16:
 	#50/50 lifeline
 	if select == "1":
 		if lifeline_fifty == 0:
-			millionaire.fifty(answers,money,name)
+			millionaire.fifty(answers,money,name,question,i)
 			lifeline_fifty = 1
 		elif lifeline_fifty != 0:
 			print "You've already used this lifeline!"
@@ -69,7 +70,7 @@ while i <= 16:
 	#Phone a friend lifeline 
 	if select == "2":
 		if lifeline_friend == 0:
-			millionaire.friend(answers,money,name,question)
+			millionaire.friend(answers,money,name,question,i)
 			lifeline_friend = 1
 		elif lifeline_friend != 0:
 			print "You've already used this lifeline!"
@@ -78,7 +79,7 @@ while i <= 16:
 	#Ask the audience lifeline 
 	if select == "3":
 		if lifeline_audience == 0:
-			millionaire.audience(answers,money,name,question)
+			millionaire.audience(answers,money,name,question,i)
 			lifeline_audience = 1
 		elif lifeline_audience != 0:
 			print "You've already used this lifeline!"
@@ -87,12 +88,12 @@ while i <= 16:
 	
 	if select in answerdict:
 		if answerdict[select] == answers[4]:
-			print 'Correct\nYou are one step closer to being a Millionaire' 
+			print 'Correct\nYou are one step closer to being a Millionaire' +"\n" 
 		else:
 			print 'Hard luck ' + name  + ', Game over'							
 			break
-		if i == 16:
-			print "Congratulations You are a millionaire!"
+		if i == 15:
+			print "Congratulations. You are a millionaire!"
 			time.sleep(5)
 			break
 
