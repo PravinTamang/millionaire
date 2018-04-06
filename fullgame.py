@@ -2,26 +2,28 @@ import random
 import time
 import millionaire
 
+
 #take name
 global name
 name = raw_input("Hello, welcome to Who Wants to be a Millionaire! What is your name?" + "\n")
 
 #call introduction function
-millionaire.intro(name)
+#millionaire.intro(name)
 
 #counters
-global money
-money = '100'
 lifeline_fifty = 0
 lifeline_friend = 0
 lifeline_audience = 0
+j = 0
+global i
+i = 1
+global money
+money = '100'
 
 answerlist = ["A","B","C","D", "Correct"]
 
 #open random line in file
-j = 0
-global i
-i = 1
+
 while i <= 16:
 	f = (random.choice(list(open('test.txt'))))
 	lines = f.split('[')
@@ -30,7 +32,7 @@ while i <= 16:
 	global answers
 	answers = lines[1].strip("\n").split(',')
 
-	print 'Question:', i 
+	print 'Question:', i, money
 
 	print question
 	print 'A: ' + answers[0]
@@ -61,7 +63,7 @@ while i <= 16:
 	#50/50 lifeline
 	if select == "1":
 		if lifeline_fifty == 0:
-			millionaire.fifty(answers,money,name,question,i)
+			select = millionaire.fifty(answers,money,name,question,i)
 			lifeline_fifty = 1
 		elif lifeline_fifty != 0:
 			print "You've already used this lifeline!"
@@ -70,7 +72,7 @@ while i <= 16:
 	#Phone a friend lifeline 
 	if select == "2":
 		if lifeline_friend == 0:
-			millionaire.friend(answers,money,name,question,i)
+			select = millionaire.friend(answers,money,name,question,i)
 			lifeline_friend = 1
 		elif lifeline_friend != 0:
 			print "You've already used this lifeline!"
@@ -79,7 +81,7 @@ while i <= 16:
 	#Ask the audience lifeline 
 	if select == "3":
 		if lifeline_audience == 0:
-			millionaire.audience(answers,money,name,question,i)
+			select = millionaire.audience(answers,money,name,question,i)
 			lifeline_audience = 1
 		elif lifeline_audience != 0:
 			print "You've already used this lifeline!"
@@ -87,7 +89,7 @@ while i <= 16:
 		 
 	
 	if select in answerdict:
-		if answerdict[select] == answers[4]:
+		if answerdict[select] == answers[4] and i < 15:
 			print 'Correct\nYou are one step closer to being a Millionaire' +"\n" 
 		else:
 			print 'Hard luck ' + name  + ', Game over'							
@@ -96,6 +98,9 @@ while i <= 16:
 			print "Congratulations. You are a millionaire!"
 			time.sleep(5)
 			break
+	if len(select) > 2:
+		print "DQ"
+		break
 
 	i = i + 1
 	

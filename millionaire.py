@@ -33,6 +33,8 @@ def intro(name):
    time.sleep(2) 
    print "Our wonderful people (bots) in the audience will vote on the correct answer and we shall show you the results\nPress 3 to access"
    time.sleep(4)
+   print "One more thing, when answering, please use either A, B, C or D or you will be disqualified!"
+   time.sleep(2)
    print "\nReady to get started? Lets go!" + "\n" + "===================================================================\n"
    time.sleep(2)
 
@@ -58,6 +60,7 @@ def fifty(answers,money,name,question, i):
    if select == "3":
       print "You can only use one lifeline per question, sorry."
       i = i - 1
+   return select
 
 #Phone a friend
 def friend(answers,money,name,question,i):
@@ -86,6 +89,8 @@ def friend(answers,money,name,question,i):
    if select == "3":
       print "You can only use one lifeline per question, sorry."
       i = i - 1
+   
+   return select
 
 #Ask the Audience
 def audience(answers,money,name,question,i):
@@ -115,3 +120,5 @@ def audience(answers,money,name,question,i):
    if select == "2":
       print "You can only use one lifeline per question, sorry."
       i = i - 1
+
+   return select
