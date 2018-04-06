@@ -100,7 +100,7 @@ while i <= 16:
 			break
 		
 	if len(select) > 2:
-		print "DQ"
+		print "You have been disqualified, sorry!"
 		break
 
 	i = i + 1
