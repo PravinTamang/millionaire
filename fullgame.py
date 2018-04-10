@@ -35,10 +35,15 @@ while i <= 16:
 	print 'Question:', i, "for", money[i-1]
 
 	print question
+	time.sleep(1)
 	print 'A: ' + answers[0]
+	time.sleep(1)
 	print 'B: ' + answers[1]
+	time.sleep(1)
 	print 'C: ' + answers[2]
+	time.sleep(1)
 	print 'D: ' + answers[3]
+	time.sleep(1)
 
 
 	#assigning values to answers
@@ -90,12 +95,18 @@ while i <= 16:
 	
 	if select in answerdict:
 		if answerdict[select] == answers[4] and i <= 14:
-			print 'Correct\nYou are one step closer to being a Millionaire' +"\n" 
+			print 'Correct\n'
+		if i == 1 and i < 10:
+			print 'You are getting there' +"\n"
+		if i > 10 and i < 15: 	
+			print 'You are one step closer to being a Millionaire' +"\n" 
 		elif i == 15:
 			print "Congratulations. You are a millionaire!"
 			time.sleep(5)
 			break
-		else:
+		
+	if select in answerdict:
+		if answerdict[select] != answers[4]:
 			print 'Hard luck ' + name  + ', Game over'							
 			break
 		
