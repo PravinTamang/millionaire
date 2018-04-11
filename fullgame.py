@@ -18,14 +18,16 @@ j = 0
 global i
 i = 1
 global money
-money = ['100','200','300','500','1000','2000','4000','8000','16000','32000','64000','125000','250000','500000','1000000']
+money = ['$100','$200','$300','$500','$1000','$2000','$4000','$8000','$16000','$32000','$64000','$125000','$250000','$500000','$1000000']
 
 answerlist = ["A","B","C","D", "Correct"]
 
 #open random line in file
+questionList = list(open("test.txt"))
+
 
 while i <= 16:
-	f = (random.choice(list(open('test.txt'))))
+	f = questionList.pop(random.randint(0,len(questionList) - 1))
 	lines = f.split('[')
 	global question
 	question = lines[0]
@@ -33,7 +35,7 @@ while i <= 16:
 	answers = lines[1].strip("\n").split(',')
 
 	print 'Question:', i, "for", money[i-1]
-
+	time.sleep(1)
 	print question
 	time.sleep(1)
 	print 'A: ' + answers[0]
@@ -44,6 +46,7 @@ while i <= 16:
 	time.sleep(1)
 	print 'D: ' + answers[3]
 	time.sleep(1)
+	print answers[4]
 
 
 	#assigning values to answers
@@ -94,20 +97,18 @@ while i <= 16:
 		 
 	
 	if select in answerdict:
-		if answerdict[select] == answers[4] and i <= 14:
-			print 'Correct\n'
-		if i == 1 and i < 10:
-			print 'You are getting there' +"\n"
-		if i > 10 and i < 15: 	
-			print 'You are one step closer to being a Millionaire' +"\n" 
-		elif i == 15:
+		if answerdict[select] == answers[4]:
+			time.sleep(1)
+			print '\n' + 'That is the correct answer.' + "\n" 
+		if i > 10 and i < 14:
+			print "You are one step closer to being a millionaire." + "\n"
+		if i == 15:
 			print "Congratulations. You are a millionaire!"
 			time.sleep(5)
-			break
-		
+			break		
 	if select in answerdict:
 		if answerdict[select] != answers[4]:
-			print 'Hard luck ' + name  + ', Game over'							
+			print 'Hard luck ' + name  + ', Game over. The right answer is', str(answers[4]) + "!"							
 			break
 		
 	if len(select) > 2:
