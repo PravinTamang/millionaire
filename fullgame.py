@@ -46,14 +46,7 @@ while i <= 16:
 	time.sleep(1)
 	print 'D: ' + answers[3]
 	time.sleep(1)
-	print answers[4]
-
-
-	#assigning values to answers
-	a = random.choice(answers)
-	b = random.choice(answers)
-	c = random.choice(answers)
-	d = random.choice(answers)
+	
 	 
 
 	answerdict = {
@@ -100,7 +93,7 @@ while i <= 16:
 		if answerdict[select] == answers[4]:
 			time.sleep(1)
 			print '\n' + 'That is the correct answer.' + "\n" 
-		if i > 10 and i < 14:
+		if i > 10 and i < 15:
 			print "You are one step closer to being a millionaire." + "\n"
 		if i == 15:
 			print "Congratulations. You are a millionaire!"

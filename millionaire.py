@@ -50,9 +50,9 @@ def fifty(answers,money,name,question, i):
       print "Leaving you with one correct and one incorrect answer"
       #add money counter 
       time.sleep(1)
-      print "The correct answer either is", answers[5], "or ", answers[6]
+      print "You're left with the options of: \n",answers[5], "\nor \n",answers[6]
       
-      lifeline1 = raw_input( "Please select the correct answer "  + name + "\n")
+      lifeline1 = raw_input( "Please select the correct answer "  + name + ":\n")
       select = lifeline1.upper()
    #if trying to use 2 lifelines on one question   
       if select == "2":
@@ -81,13 +81,19 @@ def friend(answers,money,name,question,i):
       print "Can you help " + name + " by answering this question?"
       time.sleep(2)
       print question
+      time.sleep(1)
+      print "The possible answers are: "
+      time.sleep(1)
       print 'A: ' + answers[0]
+      time.sleep(1)
       print 'B: ' + answers[1]
+      time.sleep(1)
       print 'C: ' + answers[2]
+      time.sleep(1)
       print 'D: ' + answers[3]
       time.sleep(2)
       print friend + ":" + answers[7]
-      lifeline2 = raw_input("Chris Tarrent: Please select an answer " + name + "\n")
+      lifeline2 = raw_input("Chris Tarrent: Please select an answer " + name + ":\n")
       select = lifeline2.upper()
    #if trying to use 2 lifelines on one question
       if select == "1":
@@ -117,8 +123,11 @@ def audience(answers,money,name,question,i):
       print "The votes are in"
       time.sleep(1)
       print "A:",answers[0], " ", aud[0]
+      time.sleep(1)
       print "B:",answers[1], " ", aud[1]
+      time.sleep(1)
       print "C:",answers[2], " ", aud[2]
+      time.sleep(1)
       print "D:",answers[3], " ", aud[3]
       time.sleep(1)
       print "\nHopefully you found that helpful"
