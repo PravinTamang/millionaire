@@ -1,6 +1,6 @@
 import random
 import time
-import millionaire
+import millionaire3
 
 
 #take name
@@ -8,7 +8,7 @@ global name
 name = input("Hello, welcome to Who Wants to be a Millionaire! What is your name?" + "\n")
 
 #call introduction function
-millionaire.intro(name)
+millionaire3.intro(name)
 
 #counters
 lifeline_fifty = 0
@@ -34,17 +34,17 @@ while i <= 16:
 	global answers
 	answers = lines[1].strip("\n").split(',')
 
-	print 'Question:', i, "for", money[i-1]
+	print('Question:', i, "for", money[i-1])
 	time.sleep(1)
-	print question
+	print(question)
 	time.sleep(1)
-	print 'A: ' + answers[0]
+	print('A: ' + answers[0])
 	time.sleep(1)
-	print 'B: ' + answers[1]
+	print('B: ' + answers[1])
 	time.sleep(1)
-	print 'C: ' + answers[2]
+	print('C: ' + answers[2])
 	time.sleep(1)
-	print 'D: ' + answers[3]
+	print('D: ' + answers[3])
 	time.sleep(1)
 	
 	 
@@ -64,7 +64,7 @@ while i <= 16:
 	#50/50 lifeline
 	if select == "1":
 		if lifeline_fifty == 0:
-			select = millionaire.fifty(answers,money,name,question,i)
+			select = millionaire3.fifty(answers,money,name,question,i)
 			lifeline_fifty = 1
 		elif lifeline_fifty != 0:
 			print("You've already used this lifeline!")
@@ -73,7 +73,7 @@ while i <= 16:
 	#Phone a friend lifeline 
 	if select == "2":
 		if lifeline_friend == 0:
-			select = millionaire.friend(answers,money,name,question,i)
+			select = millionaire3.friend(answers,money,name,question,i)
 			lifeline_friend = 1
 		elif lifeline_friend != 0:
 			print("You've already used this lifeline!")
@@ -82,7 +82,7 @@ while i <= 16:
 	#Ask the audience lifeline 
 	if select == "3":
 		if lifeline_audience == 0:
-			select = millionaire.audience(answers,money,name,question,i)
+			select = millionaire3.audience(answers,money,name,question,i)
 			lifeline_audience = 1
 		elif lifeline_audience != 0:
 			print("You've already used this lifeline!")
