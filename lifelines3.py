@@ -41,7 +41,7 @@ while i <= 16:
 
 	}
 	#print answers[4]
-	select = raw_input("Select an answer " + name + ":\n")
+	select = input("Select an answer " + name + ":\n")
 	select = select.upper()
 	
 #phone a friend idea
