@@ -73,7 +73,7 @@ def friend(answers,money,name,question,i):
       friend = input("Please enter the name of the person you want to ring " + name + ":\n")
       print("...dialling " + friend + "... ")
       time.sleep(2)
-      print("Hi " + friend + " it's Chris Tarrent here, " + name + " needs your help!")
+      print("Hi " + friend + ", " + name + " needs your help!")
       time.sleep(2)
       print("Can you help " + name + " by answering this question?")
       time.sleep(2)
@@ -90,7 +90,7 @@ def friend(answers,money,name,question,i):
       print('D: ' + answers[3])
       time.sleep(2)
       print(friend + ":" + answers[7])
-      lifeline2 = input("Chris Tarrent: Please select an answer " + name + ":\n")
+      lifeline2 = input("Please select an answer " + name + ":\n")
       select = lifeline2.upper()
    #if trying to use 2 lifelines on one question
       if select == "1":
