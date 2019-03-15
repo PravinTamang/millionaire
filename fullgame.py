@@ -104,7 +104,7 @@ while i <= 16:
 			print 'Hard luck ' + name  + ', Game over. The right answer is', str(answers[4]) + "!"							
 			break
 		
-	if len(select) > 2:
+	if len(select) > 1:
 		print "You have been disqualified, sorry!"
 		break
 
